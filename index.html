@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snack Pack - Smart Snacking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#fff7ed',
+                100: '#ffedd5',
+                200: '#fed7aa',
+                300: '#fdba74',
+                400: '#fb923c',
+                500: '#f97316',
+                600: '#ea580c',
+                700: '#c2410c',
+                800: '#9a3412',
+                900: '#7c2d12',
+              },
+              olive: {
+                50: '#f7fee7',
+                100: '#ecfccb',
+                500: '#84cc16',
+                900: '#365314',
+              },
+              dark: {
+                bg: '#0c0a09', // stone-950
+                card: '#1c1917', // stone-900
+                border: '#292524', // stone-800
+              },
+              gold: {
+                100: '#fef3c7',
+                400: '#fbbf24',
+                500: '#f59e0b',
+                600: '#d97706',
+              },
+              silver: {
+                100: '#f1f5f9',
+                300: '#cbd5e1',
+                400: '#94a3b8',
+                500: '#64748b',
+                600: '#475569',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              display: ['Outfit', 'sans-serif'],
+              serif: ['"EB Garamond"', 'serif'],
+            },
+            animation: {
+              'bounce-slow': 'bounce 3s infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'slide-up': 'slideUp 0.5s ease-out forwards',
+              'blob': 'blob 7s infinite',
+              'shimmer': 'shimmer 2s linear infinite',
+              'electric': 'electric 2s linear infinite',
+              'fill-bar': 'fillBar 2.5s ease-out infinite',
+              'pulse-glow': 'pulseGlow 3s infinite',
+              'spin-slow': 'spin 8s linear infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              blob: {
+                "0%": { transform: "translate(0px, 0px) scale(1)" },
+                "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                "100%": { transform: "translate(0px, 0px) scale(1)" }
+              },
+              shimmer: {
+                "0%": { transform: "translateX(-100%)" },
+                "100%": { transform: "translateX(100%)" }
+              },
+              electric: {
+                "0%": { backgroundPosition: "0% 50%" },
+                "100%": { backgroundPosition: "200% 50%" }
+              },
+              fillBar: {
+                "0%": { width: "0%" },
+                "100%": { width: "100%" }
+              },
+              pulseGlow: {
+                "0%, 100%": { boxShadow: "0 0 5px rgba(249, 115, 22, 0.5)" },
+                "50%": { boxShadow: "0 0 20px rgba(249, 115, 22, 0.8)" }
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
+      html { scroll-padding-top: 80px; }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+      .dark .glass-panel {
+        background: rgba(28, 25, 23, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .bg-grid {
+        background-size: 40px 40px;
+        background-image: linear-gradient(to right, rgba(0,0,0,0.12) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(0,0,0,0.12) 1px, transparent 1px);
+      }
+      .dark .bg-grid {
+        background-image: linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(255,255,255,0.12) 1px, transparent 1px);
+      }
+      
+      .bg-dots {
+        background-size: 20px 20px;
+        background-image: radial-gradient(rgba(120, 113, 108, 0.2) 1.5px, transparent 1.5px);
+      }
+      .dark .bg-dots {
+        background-image: radial-gradient(rgba(168, 162, 158, 0.15) 1.5px, transparent 1.5px);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(120, 113, 108, 0.3);
+        border-radius: 20px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(120, 113, 108, 0.5);
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background-color: rgba(168, 162, 158, 0.3);
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(168, 162, 158, 0.5);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-stone-50 text-stone-800 antialiased selection:bg-brand-200 selection:text-brand-900 dark:bg-dark-bg dark:text-stone-100 transition-colors duration-300 overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
