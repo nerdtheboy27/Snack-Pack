@@ -168,6 +168,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-<div align="center">
-  <p>Built with ❤️ using <b>Gemini 2.5</b></p>
-</div>
+
